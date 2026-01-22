@@ -1,19 +1,18 @@
 import streamlit as st
 import requests
+import os
 
-st.title("🤖 Document AI Екатеринбург")
+st.title("🤖 Document AI")
 
-# Твой токен (спрячем позже)
-GIGACHAT_TOKEN = st.secrets["GIGACHAT_TOKEN"]
+# Токен из секретов
+GIGACHAT_TOKEN = os.getenv("GIGACHAT_TOKEN")
 
-url = "https://gigachat.devices.sberbank.ru/api/v1/chat/completions"
+if not GIGACHAT_TOKEN:
+    st.error("❌ Нет токена GIGACHAT_TOKEN в секретах!")
+    st.stop()
 
-text = st.text_area("Вставь договор:", height=300)
+text = st.text_area("Договор:")
 
-if st.button("🔍 АНАЛИЗ"):
-    headers = {
-        "Authorization": f"Bearer {GIGACHAT_TOKEN}",
-        "Content-Type": "application/json"
-    }
-    payload
-
+if st.button("АНАЛИЗ"):
+    st.info("Анализирую...")
+    url
