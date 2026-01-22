@@ -4,7 +4,7 @@ import requests
 st.title("🤖 Document AI Екатеринбург")
 
 # Твой токен (спрячем позже)
-GIGACHAT_TOKEN = "ТВОЙ_GIGACHAT_ТОКЕН"
+GIGACHAT_TOKEN = st.secrets["GIGACHAT_TOKEN"]
 
 url = "https://gigachat.devices.sberbank.ru/api/v1/chat/completions"
 
@@ -16,3 +16,4 @@ if st.button("🔍 АНАЛИЗ"):
         "Content-Type": "application/json"
     }
     payload
+
